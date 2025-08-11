@@ -22,6 +22,8 @@
     <button id="restart">Main Lagi</button>
   </div>
   <audio id="bgm" src="space-ambient.mp3" loop></audio>
+  <img id="logoPlayer" src="logo.png" alt="Logo Player" style="display:none;">
+
 
   <script>
     const canvas = document.getElementById('game');
@@ -31,7 +33,12 @@ let player, obstacles, score, playing, moveX, keys, lastTime, spawnInterval, las
 function resize(){canvas.width=innerWidth; canvas.height=innerHeight;}
 addEventListener('resize', resize);
 resize();
-
+    
+const logo = document.getElementById('logoPlayer');
+const playerImg = new Image();
+playerImg.onload = initGame;
+playerImg.src = logo.src;
+    
 function initGame(){
   player = { x:canvas.width/2 - 18, y:canvas.height - 60, w:36, h:36 };
   obstacles = [];
